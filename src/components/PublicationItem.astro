@@ -1,0 +1,105 @@
+---
+import type { Locale } from '../i18n/ui';
+import { t } from '../i18n/ui';
+
+type AuthorMeta = {
+  name: string;
+  url?: string;
+  self?: boolean;
+  corresponding?: boolean;
+  equal?: boolean;
+};
+
+type PaperMeta = {
+  authors: AuthorMeta[];
+  venue: string;
+  venueShort?: string;
+  year: number;
+  selected?: boolean;
+  tags?: string[];
+  note?: string;
+  links?: Partial<Record<'pdf' | 'arxiv' | 'code' | 'project' | 'video' | 'website', string>>;
+  bibtex: string;
+};
+
+type Props = {
+  locale: Locale;
+  title: string;
+  abstract: string;
+  note?: string;
+  meta: PaperMeta;
+  uid: string;
+};
+
+const { locale, title, abstract, note, meta, uid } = Astro.props;
+
+const linkLabels: Array<[keyof NonNullable<PaperMeta['links']>, string]> = [
+  ['pdf', t(locale, 'pub.pdf')],
+  ['arxiv', t(locale, 'pub.arxiv')],
+  ['code', t(locale, 'pub.code')],
+  ['project', t(locale, 'pub.project')],
+  ['video', t(locale, 'pub.video')],
+  ['website', t(locale, 'pub.website')],
+];
+const links = meta.links ?? {};
+const headerLink = links.project || links.arxiv || links.pdf || links.website;
+const venueNote = note ?? meta.note;
+---
+
+<li class="pub-item">
+  <h3 class="pub-item__title">
+    {headerLink ? (
+      <a href={headerLink} target="_blank" rel="noopener noreferrer">{title}</a>
+    ) : (
+      <span>{title}</span>
+    )}
+  </h3>
+  <p class="pub-item__authors">
+    {meta.authors.map((a, i) => (
+      <>
+        {a.url ? (
+          <a href={a.url} class={a.self ? 'pub-item__author--self' : ''} target="_blank" rel="noopener noreferrer">{a.name}</a>
+        ) : (
+          <span class={a.self ? 'pub-item__author--self' : ''}>{a.name}</span>
+        )}
+        {a.equal && <span class="pub-item__author-mark">*</span>}
+        {a.corresponding && <span class="pub-item__author-mark">†</span>}
+        {i < meta.authors.length - 1 && <span>, </span>}
+      </>
+    ))}
+  </p>
+  <p class="pub-item__venue">
+    {meta.venue}, {meta.year}
+    {venueNote && <span class="pub-item__venue-note">{venueNote}</span>}
+  </p>
+  <div class="pub-item__links">
+    <button
+      type="button"
+      class="pub-item__toggle"
+      data-toggle-target={`abs-${uid}`}
+      aria-expanded="false"
+    >[{t(locale, 'pub.abstract')}]</button>
+    {linkLabels.map(([key, label]) => {
+      const href = links[key];
+      return href ? <a href={href} target="_blank" rel="noopener noreferrer">[{label}]</a> : null;
+    })}
+    <button
+      type="button"
+      class="pub-item__toggle"
+      data-toggle-target={`bib-${uid}`}
+      aria-expanded="false"
+    >[{t(locale, 'pub.bibtex')}]</button>
+  </div>
+  <div id={`abs-${uid}`} class="pub-item__abstract" hidden>{abstract}</div>
+  <div id={`bib-${uid}`} class="pub-item__bibtex-wrap" hidden>
+    <button
+      type="button"
+      class="pub-item__copy"
+      data-copy-source={`bib-code-${uid}`}
+      data-copy-label={t(locale, 'pub.copy')}
+      data-copied-label={t(locale, 'pub.copied')}
+      aria-label={t(locale, 'pub.copy_aria')}
+    >{t(locale, 'pub.copy')}</button>
+    <pre id={`bib-code-${uid}`} class="pub-item__bibtex"><code>{meta.bibtex}</code></pre>
+  </div>
+</li>

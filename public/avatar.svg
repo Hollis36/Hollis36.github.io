@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#f0f0f0"/>
+  <circle cx="100" cy="80" r="36" fill="#c0c0c0"/>
+  <path d="M 35 200 Q 35 130 100 130 Q 165 130 165 200 Z" fill="#c0c0c0"/>
+  <text x="100" y="194" font-family="-apple-system, Helvetica, Arial, sans-serif" font-size="11" fill="#8a8a8a" text-anchor="middle">replace me with /avatar.jpg</text>
+</svg>

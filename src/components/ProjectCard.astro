@@ -1,0 +1,27 @@
+---
+type Props = {
+  title: string;
+  summary: string;
+  cover?: string;
+  link?: string;
+};
+const { title, summary, cover, link } = Astro.props;
+const Tag = link ? 'a' : 'div';
+const tagProps = link
+  ? { href: link, target: '_blank', rel: 'noopener noreferrer' }
+  : {};
+---
+
+<li>
+  <Tag class="project-card" {...tagProps}>
+    {cover && (
+      <div class="project-card__cover">
+        <img src={cover} alt={title} loading="lazy" />
+      </div>
+    )}
+    <div class="project-card__body">
+      <h3 class="project-card__title">{title}</h3>
+      <p class="project-card__summary">{summary}</p>
+    </div>
+  </Tag>
+</li>

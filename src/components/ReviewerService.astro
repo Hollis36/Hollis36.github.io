@@ -1,0 +1,14 @@
+---
+import { profile } from '../data/profile';
+
+const sorted = [...profile.reviewerService].sort((a, b) => b.year - a.year);
+---
+
+<ul class="reviewer">
+  {sorted.map((row) => (
+    <li class="reviewer__item">
+      <span class="reviewer__year">{row.year}</span>
+      <span class="reviewer__venues">{row.venues.join(' · ')}</span>
+    </li>
+  ))}
+</ul>

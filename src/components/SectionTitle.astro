@@ -1,0 +1,11 @@
+---
+type Props = {
+  title: string;
+  id?: string;
+};
+const { title, id } = Astro.props;
+---
+
+<h2 class="section-title" id={id}>
+  <span class="section-title__bracket">[</span>{title}<span class="section-title__bracket">]</span>
+</h2>
