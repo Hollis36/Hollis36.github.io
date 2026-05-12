@@ -10,9 +10,6 @@ import ReviewerServiceComp from '../components/ReviewerService.astro';
 import { getCollection } from 'astro:content';
 import papersData from '../data/papers.json';
 import { profile } from '../data/profile';
-import { t } from '../i18n/ui';
-
-const locale = 'en' as const;
 
 type PaperMeta = (typeof papersData)[keyof typeof papersData];
 const meta = papersData as Record<string, PaperMeta>;
@@ -32,22 +29,21 @@ const pageTitle = `${profile.name} | ${profile.position}`;
 const pageDescription = profile.goal;
 ---
 
-<BaseLayout locale={locale} title={pageTitle} description={pageDescription}>
-  <Hero locale={locale} />
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Hero />
   <hr />
 
   <section class="section">
-    <SectionTitle title={t(locale, 'section.news')} id="news" />
+    <SectionTitle title="News" id="news" />
     <NewsList />
   </section>
   <hr />
 
   <section class="section">
-    <SectionTitle title={t(locale, 'section.publications')} id="publications" />
+    <SectionTitle title="Publications" id="publications" />
     <ul class="pub-list">
       {pubsWithMeta.map(({ entry, m }) => (
         <PublicationItem
-          locale={locale}
           uid={entry.data.paperId}
           title={entry.data.title}
           abstract={entry.data.abstract}
@@ -62,7 +58,7 @@ const pageDescription = profile.goal;
     <>
       <hr />
       <section class="section">
-        <SectionTitle title={t(locale, 'section.projects')} id="projects" />
+        <SectionTitle title="Selected Projects" id="projects" />
         <ul class="project-grid">
           {projectsSorted.map((p) => (
             <ProjectCard
@@ -79,13 +75,13 @@ const pageDescription = profile.goal;
 
   <hr />
   <section class="section">
-    <SectionTitle title={t(locale, 'section.honors')} id="honors" />
+    <SectionTitle title="Honors & Awards" id="honors" />
     <Honors />
   </section>
 
   <hr />
   <section class="section">
-    <SectionTitle title={t(locale, 'section.reviewer')} id="reviewer" />
+    <SectionTitle title="Reviewer Service" id="reviewer" />
     <ReviewerServiceComp />
   </section>
 </BaseLayout>
