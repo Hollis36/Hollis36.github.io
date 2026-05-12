@@ -1,20 +1,37 @@
 ---
 import { profile } from '../data/profile';
+
+type NavItem = { label: string; href: string; external?: boolean };
+
+const navItems: NavItem[] = [
+  { label: 'CV', href: profile.cvUrl, external: true },
+  { label: 'Email', href: `mailto:${profile.emailAddress}` },
+];
+if (profile.social.scholar) {
+  navItems.push({ label: 'Google Scholar', href: profile.social.scholar, external: true });
+}
+if (profile.social.github) {
+  navItems.push({ label: 'GitHub', href: profile.social.github, external: true });
+}
+if (profile.social.linkedin) {
+  navItems.push({ label: 'LinkedIn', href: profile.social.linkedin, external: true });
+}
 ---
 
 <header class="site-header">
   <div class="site-header__inner">
     <a href="/" class="site-header__brand">{profile.name}</a>
     <nav class="site-nav" aria-label="Primary">
-      <a href={profile.cvUrl} target="_blank" rel="noopener noreferrer">CV</a>
-      <span class="site-nav__sep">·</span>
-      <a href={`mailto:${profile.emailAddress}`}>Email</a>
-      <span class="site-nav__sep">·</span>
-      <a href={profile.social.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a>
-      <span class="site-nav__sep">·</span>
-      <a href={profile.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-      <span class="site-nav__sep">·</span>
-      <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      {navItems.map((item, i) => (
+        <>
+          {i > 0 && <span class="site-nav__sep">·</span>}
+          {item.external ? (
+            <a href={item.href} target="_blank" rel="noopener noreferrer">{item.label}</a>
+          ) : (
+            <a href={item.href}>{item.label}</a>
+          )}
+        </>
+      ))}
     </nav>
   </div>
 </header>

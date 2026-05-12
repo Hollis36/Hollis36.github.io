@@ -63,9 +63,9 @@ export const profile: Profile = {
   avatarUrl: '/show-photo.jpg',
   cvUrl: '/cv.pdf',
   social: {
-    scholar: 'https://scholar.google.com/citations?user=YOUR_ID',
+    scholar: '',
     github: 'https://github.com/Hollis36',
-    linkedin: 'https://www.linkedin.com/in/your-handle/',
+    linkedin: '',
   },
   education: [
     {
