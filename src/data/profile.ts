@@ -10,6 +10,14 @@ export type LocalizedProfile = {
   interests: string;
 };
 
+export type HonorAward = {
+  year: number;
+  en: string;
+  zh: string;
+  note?: string;
+  link?: string;
+};
+
 export type Profile = {
   shortName: string;
   shortNameAlt: string;
@@ -22,6 +30,7 @@ export type Profile = {
     linkedin: string;
   };
   locales: Record<Locale, LocalizedProfile>;
+  honorsAwards: HonorAward[];
   reviewerService: Array<{
     year: number;
     venues: string[];
@@ -58,6 +67,39 @@ export const profile: Profile = {
         'Machine learning, robot learning, reinforcement learning. I am especially interested in combining foundation models with embodied agents, and making them reliable in the real physical world.',
     },
   },
+  honorsAwards: [
+    {
+      year: 2025,
+      en: 'National Scholarship for Doctoral Students',
+      zh: '博士研究生国家奖学金',
+      note: 'Top 1%',
+    },
+    {
+      year: 2025,
+      en: 'CSC State-Sponsored Joint-Training Doctoral Fellowship',
+      zh: '国家公派联合培养博士生 (CSC)',
+    },
+    {
+      year: 2024,
+      en: '1st Prize, "Huawei Cup" China Postgraduate Mathematical Contest in Modeling',
+      zh: '"华为杯" 全国研究生数学建模竞赛 一等奖',
+    },
+    {
+      year: 2024,
+      en: 'Outstanding Graduate Student of the Year',
+      zh: '校级"十佳研究生"',
+    },
+    {
+      year: 2023,
+      en: '2nd Prize, China College Students "Internet+" Innovation and Entrepreneurship Competition',
+      zh: '中国国际"互联网+"大学生创新创业大赛 国家级二等奖',
+    },
+    {
+      year: 2022,
+      en: 'Outstanding Undergraduate Thesis Award',
+      zh: '省级优秀本科毕业设计',
+    },
+  ],
   reviewerService: [
     { year: 2026, venues: ['NeurIPS', 'CVPR', 'ICLR'] },
     { year: 2025, venues: ['NeurIPS', 'ICML', 'ICLR', 'CVPR', 'ICCV', 'ICRA', 'IROS'] },

@@ -5,6 +5,7 @@ import SectionTitle from '../components/SectionTitle.astro';
 import NewsList from '../components/NewsList.astro';
 import PublicationItem from '../components/PublicationItem.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import Honors from '../components/Honors.astro';
 import ReviewerServiceComp from '../components/ReviewerService.astro';
 import { getCollection } from 'astro:content';
 import papersData from '../data/papers.json';
@@ -76,6 +77,12 @@ const pageDescription = lp.goal;
       </section>
     </>
   )}
+
+  <hr />
+  <section class="section">
+    <SectionTitle title={t(locale, 'section.honors')} id="honors" />
+    <Honors locale={locale} />
+  </section>
 
   <hr />
   <section class="section">

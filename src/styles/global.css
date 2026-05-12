@@ -560,29 +560,48 @@ pre {
   line-height: 1.5;
 }
 
-.reviewer {
+.reviewer,
+.honors {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.reviewer__item {
+.reviewer__item,
+.honors__item {
   display: grid;
   grid-template-columns: 4rem 1fr;
   gap: var(--space-2);
   padding: 0.4rem 0;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
 }
 
-.reviewer__year {
+.honors__item {
+  border-bottom: 1px dashed var(--line);
+  padding: 0.55rem 0;
+}
+
+.honors__item:last-child {
+  border-bottom: none;
+}
+
+.reviewer__year,
+.honors__year {
   font-family: var(--font-mono);
   color: var(--ink-mute);
   font-size: 0.85rem;
-  padding-top: 0.1rem;
+  padding-top: 0.18rem;
 }
 
-.reviewer__venues {
+.reviewer__venues,
+.honors__label {
   color: var(--ink-soft);
+}
+
+.honors__note {
+  color: var(--ink-mute);
+  font-style: italic;
+  margin-left: 0.3rem;
 }
 
 @media (max-width: 640px) {
@@ -616,7 +635,8 @@ pre {
     grid-template-columns: 4.5rem 1fr;
     gap: 0.7rem;
   }
-  .reviewer__item {
+  .reviewer__item,
+  .honors__item {
     grid-template-columns: 3.2rem 1fr;
   }
 }
