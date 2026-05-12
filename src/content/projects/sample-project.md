@@ -5,5 +5,5 @@ summary: "One-line description: a placeholder project to demonstrate the card st
 year: 2024
 order: 1
 tags: ["open-source", "tool"]
-link: "https://github.com/your-username/sample-project"
+link: "https://github.com/Hollis36/sample-project"
 ---
