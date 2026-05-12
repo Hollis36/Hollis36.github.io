@@ -1,18 +1,18 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import SectionTitle from '../components/SectionTitle.astro';
-import NewsList from '../components/NewsList.astro';
-import PublicationItem from '../components/PublicationItem.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import Honors from '../components/Honors.astro';
-import ReviewerServiceComp from '../components/ReviewerService.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import NewsList from '../../components/NewsList.astro';
+import PublicationItem from '../../components/PublicationItem.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import Honors from '../../components/Honors.astro';
+import ReviewerServiceComp from '../../components/ReviewerService.astro';
 import { getCollection } from 'astro:content';
-import papersData from '../data/papers.json';
-import { profile } from '../data/profile';
-import { t } from '../i18n/ui';
+import papersData from '../../data/papers.json';
+import { profile } from '../../data/profile';
+import { t } from '../../i18n/ui';
 
-const locale = 'en' as const;
+const locale = 'zh' as const;
 
 type PaperMeta = (typeof papersData)[keyof typeof papersData];
 const meta = papersData as Record<string, PaperMeta>;
@@ -91,5 +91,5 @@ const pageDescription = profile.goal;
 </BaseLayout>
 
 <script>
-  import '../scripts/bibtex-copy';
+  import '../../scripts/bibtex-copy';
 </script>

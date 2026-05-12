@@ -4,7 +4,22 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://hollis36.github.io',
   trailingSlash: 'never',
-  integrations: [sitemap()],
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'zh'],
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: false,
+    },
+  },
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: { en: 'en-US', zh: 'zh-CN' },
+      },
+    }),
+  ],
   build: {
     format: 'directory',
   },

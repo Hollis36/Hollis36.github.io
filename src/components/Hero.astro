@@ -1,5 +1,10 @@
 ---
 import { profile } from '../data/profile';
+import type { Locale } from '../i18n/ui';
+import { t } from '../i18n/ui';
+
+type Props = { locale: Locale };
+const { locale } = Astro.props;
 ---
 
 <section class="hero">
@@ -7,8 +12,8 @@ import { profile } from '../data/profile';
     <h1 class="hero__name">{profile.name}</h1>
     <p class="hero__position">{profile.position}</p>
     <p class="hero__affiliation">{profile.affiliation}</p>
-    <p class="hero__goal"><strong>Goal:</strong> {profile.goal}</p>
-    <p class="hero__interests"><strong>Research Interests:</strong> {profile.interests}</p>
+    <p class="hero__goal"><strong>{t(locale, 'hero.goal')}:</strong> {profile.goal}</p>
+    <p class="hero__interests"><strong>{t(locale, 'hero.interests')}:</strong> {profile.interests}</p>
   </div>
   <div class="hero__avatar">
     <img src={profile.avatarUrl} alt={profile.name} width="200" height="200" loading="eager" />

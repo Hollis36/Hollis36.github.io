@@ -1,20 +1,27 @@
 ---
 import { profile } from '../data/profile';
+import type { Locale } from '../i18n/ui';
+import { t, localizedPath } from '../i18n/ui';
+import LangSwitch from './LangSwitch.astro';
+
+type Props = { locale: Locale };
+const { locale } = Astro.props;
 ---
 
 <header class="site-header">
   <div class="site-header__inner">
-    <a href="/" class="site-header__brand">{profile.name}</a>
+    <a href={localizedPath(locale)} class="site-header__brand">{profile.name}</a>
     <nav class="site-nav" aria-label="Primary">
-      <a href={profile.cvUrl} target="_blank" rel="noopener noreferrer">CV</a>
+      <a href={profile.cvUrl} target="_blank" rel="noopener noreferrer">{t(locale, 'nav.cv')}</a>
       <span class="site-nav__sep">·</span>
-      <a href={`mailto:${profile.emailAddress}`}>Email</a>
+      <a href={`mailto:${profile.emailAddress}`}>{t(locale, 'nav.email')}</a>
       <span class="site-nav__sep">·</span>
-      <a href={profile.social.scholar} target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      <a href={profile.social.scholar} target="_blank" rel="noopener noreferrer">{t(locale, 'nav.scholar')}</a>
       <span class="site-nav__sep">·</span>
-      <a href={profile.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href={profile.social.github} target="_blank" rel="noopener noreferrer">{t(locale, 'nav.github')}</a>
       <span class="site-nav__sep">·</span>
-      <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer">{t(locale, 'nav.linkedin')}</a>
+      <LangSwitch current={locale} />
     </nav>
   </div>
 </header>
