@@ -126,8 +126,20 @@ export const profile: Profile = {
       note: 'Top-tier graduate award',
     },
     {
+      year: 2025,
+      label: 'Outstanding Volunteer (National), China Western Volunteer Program',
+    },
+    {
+      year: 2024,
+      label: 'Outstanding Student, Xidian University',
+    },
+    {
       year: 2024,
       label: 'Champion, World Robot Contest — Shaanxi Selection',
+    },
+    {
+      year: 2024,
+      label: 'Outstanding Instructor, World Robot Contest Shaanxi Selection',
     },
     {
       year: 2024,
