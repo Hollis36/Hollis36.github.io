@@ -34,7 +34,7 @@ export const profile: Profile = {
   goal: 'Build machines that better understand and serve humanity.',
   interests:
     'Machine learning, robot learning, reinforcement learning. I am especially interested in combining foundation models with embodied agents, and making them reliable in the real physical world.',
-  emailAddress: 'you@example.edu',
+  emailAddress: 'peifu@stu.xidian.edu.cn',
   avatarUrl: '/show-photo.jpg',
   cvUrl: '/cv.pdf',
   social: {
