@@ -15,7 +15,7 @@
     "links": {
       "pdf": "https://arxiv.org/pdf/0000.00000",
       "arxiv": "https://arxiv.org/abs/0000.00000",
-      "code": "https://github.com/your-username/sample-foo",
+      "code": "https://github.com/Hollis36/sample-foo",
       "project": "https://example.com/sample-foo"
     },
     "bibtex": "@inproceedings{yourname2026foo,\n  title     = {A Sample Paper Title You Will Replace},\n  author    = {Peifu Zhang and Co Author A and Co Author B and Senior Advisor},\n  booktitle = {NeurIPS},\n  year      = {2026}\n}"
@@ -34,7 +34,7 @@
     "links": {
       "pdf": "https://arxiv.org/pdf/1111.11111",
       "arxiv": "https://arxiv.org/abs/1111.11111",
-      "code": "https://github.com/your-username/sample-bar"
+      "code": "https://github.com/Hollis36/sample-bar"
     },
     "bibtex": "@inproceedings{authora2025bar,\n  title     = {Another Sample Paper Title},\n  author    = {Co Author A and Peifu Zhang and Senior Advisor},\n  booktitle = {ICML},\n  year      = {2025}\n}"
   },

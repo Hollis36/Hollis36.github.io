@@ -39,7 +39,7 @@ export const profile: Profile = {
   cvUrl: '/cv.pdf',
   social: {
     scholar: 'https://scholar.google.com/citations?user=YOUR_ID',
-    github: 'https://github.com/your-username',
+    github: 'https://github.com/Hollis36',
     linkedin: 'https://www.linkedin.com/in/your-handle/',
   },
   honorsAwards: [
