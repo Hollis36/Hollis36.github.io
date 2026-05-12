@@ -1,7 +1,7 @@
 {
   "sample-2026-foo": {
     "authors": [
-      { "name": "Your Name", "url": "", "self": true, "equal": true },
+      { "name": "Peifu Zhang", "url": "", "self": true, "equal": true },
       { "name": "Co Author A", "url": "https://example.com/a", "equal": true },
       { "name": "Co Author B", "url": "https://example.com/b" },
       { "name": "Senior Advisor", "url": "https://example.com/advisor", "corresponding": true }
@@ -18,12 +18,12 @@
       "code": "https://github.com/your-username/sample-foo",
       "project": "https://example.com/sample-foo"
     },
-    "bibtex": "@inproceedings{yourname2026foo,\n  title     = {A Sample Paper Title You Will Replace},\n  author    = {Your Name and Co Author A and Co Author B and Senior Advisor},\n  booktitle = {NeurIPS},\n  year      = {2026}\n}"
+    "bibtex": "@inproceedings{yourname2026foo,\n  title     = {A Sample Paper Title You Will Replace},\n  author    = {Peifu Zhang and Co Author A and Co Author B and Senior Advisor},\n  booktitle = {NeurIPS},\n  year      = {2026}\n}"
   },
   "sample-2025-bar": {
     "authors": [
       { "name": "Co Author A", "url": "https://example.com/a" },
-      { "name": "Your Name", "url": "", "self": true },
+      { "name": "Peifu Zhang", "url": "", "self": true },
       { "name": "Senior Advisor", "url": "https://example.com/advisor", "corresponding": true }
     ],
     "venue": "International Conference on Machine Learning (ICML)",
@@ -36,11 +36,11 @@
       "arxiv": "https://arxiv.org/abs/1111.11111",
       "code": "https://github.com/your-username/sample-bar"
     },
-    "bibtex": "@inproceedings{authora2025bar,\n  title     = {Another Sample Paper Title},\n  author    = {Co Author A and Your Name and Senior Advisor},\n  booktitle = {ICML},\n  year      = {2025}\n}"
+    "bibtex": "@inproceedings{authora2025bar,\n  title     = {Another Sample Paper Title},\n  author    = {Co Author A and Peifu Zhang and Senior Advisor},\n  booktitle = {ICML},\n  year      = {2025}\n}"
   },
   "sample-2024-baz": {
     "authors": [
-      { "name": "Your Name", "url": "", "self": true },
+      { "name": "Peifu Zhang", "url": "", "self": true },
       { "name": "Senior Advisor", "url": "https://example.com/advisor", "corresponding": true }
     ],
     "venue": "International Conference on Robotics and Automation (ICRA)",
@@ -52,6 +52,6 @@
       "pdf": "https://arxiv.org/pdf/2222.22222",
       "arxiv": "https://arxiv.org/abs/2222.22222"
     },
-    "bibtex": "@inproceedings{yourname2024baz,\n  title     = {Yet Another Sample Title},\n  author    = {Your Name and Senior Advisor},\n  booktitle = {ICRA},\n  year      = {2024}\n}"
+    "bibtex": "@inproceedings{yourname2024baz,\n  title     = {Yet Another Sample Title},\n  author    = {Peifu Zhang and Senior Advisor},\n  booktitle = {ICRA},\n  year      = {2024}\n}"
   }
 }
