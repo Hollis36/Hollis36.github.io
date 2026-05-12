@@ -74,9 +74,7 @@ export const profile: Profile = {
       institution: 'Xidian University',
       school: 'School of Mechano-Electronic Engineering',
       yearStart: 2024,
-      gpa: '89.47 / 100',
-      advisor: 'Prof. Ruichan Lv (吕锐婵)',
-      note: 'Full-time, recommended admission (推免). Currently applying for direct Ph.D. continuation (硕博连读).',
+      note: 'Full-time, applying for direct Ph.D. continuation.',
     },
     {
       degree: 'B.E.',
