@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionTitle from '../components/SectionTitle.astro';
 import Education from '../components/Education.astro';
+import Experience from '../components/Experience.astro';
 import NewsList from '../components/NewsList.astro';
 import PublicationItem from '../components/PublicationItem.astro';
 import ProjectCard from '../components/ProjectCard.astro';
@@ -45,6 +46,12 @@ const hasProjects = projectsSorted.length > 0;
   <section class="section">
     <SectionTitle title="Education" id="education" />
     <Education />
+  </section>
+  <hr />
+
+  <section class="section">
+    <SectionTitle title="Experience" id="experience" />
+    <Experience />
   </section>
   <hr />
 

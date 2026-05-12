@@ -18,6 +18,16 @@ export type EducationEntry = {
   note?: string;
 };
 
+export type ExperienceEntry = {
+  yearStart: number;
+  yearEnd?: number;
+  yearLabel?: string;
+  title: string;
+  organization: string;
+  location?: string;
+  description?: string;
+};
+
 export type Profile = {
   name: string;
   position: string;
@@ -33,6 +43,7 @@ export type Profile = {
     linkedin: string;
   };
   education: EducationEntry[];
+  experience: ExperienceEntry[];
   honorsAwards: HonorAward[];
   reviewerService: Array<{
     year: number;
@@ -75,6 +86,37 @@ export const profile: Profile = {
       yearEnd: 2024,
       gpa: '3.7 / 4.0',
       rank: 'Top 2%',
+    },
+  ],
+  experience: [
+    {
+      yearStart: 2024,
+      yearEnd: 2025,
+      title: 'Volunteer Teacher',
+      organization: 'Xidian University 26th Graduate Volunteer Teaching Corps',
+      location: 'China',
+      description: 'One-year volunteer teaching service in underserved regions.',
+    },
+    {
+      yearStart: 2024,
+      yearLabel: 'Summer 2024',
+      title: 'Visiting Student, Medical Digitization Project',
+      organization: 'National University of Singapore (NUS)',
+      location: 'Singapore',
+    },
+    {
+      yearStart: 2023,
+      yearLabel: 'Summer 2023',
+      title: 'Research Training in Deep Learning',
+      organization: 'Nanyang Technological University (NTU)',
+      location: 'Singapore',
+    },
+    {
+      yearStart: 2023,
+      yearLabel: 'Summer 2023',
+      title: 'Summer Research Intern, Brain-Computer Interface',
+      organization: 'Zhejiang University, College of Computer Science and Technology',
+      location: 'Hangzhou, China',
     },
   ],
   honorsAwards: [

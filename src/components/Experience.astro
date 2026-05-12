@@ -1,0 +1,34 @@
+---
+import { profile } from '../data/profile';
+
+function rangeLabel(e: { yearStart: number; yearEnd?: number; yearLabel?: string }): string {
+  if (e.yearLabel) return e.yearLabel;
+  if (!e.yearEnd) return `${e.yearStart} – Present`;
+  if (e.yearEnd === e.yearStart) return `${e.yearStart}`;
+  return `${e.yearStart} – ${e.yearEnd}`;
+}
+
+const sorted = [...profile.experience].sort((a, b) => {
+  const aEnd = a.yearEnd ?? 9999;
+  const bEnd = b.yearEnd ?? 9999;
+  if (aEnd !== bEnd) return bEnd - aEnd;
+  return b.yearStart - a.yearStart;
+});
+---
+
+<ul class="education">
+  {sorted.map((e) => (
+    <li class="education__item">
+      <span class="education__year">{rangeLabel(e)}</span>
+      <div class="education__body">
+        <h3 class="education__title">{e.title}</h3>
+        <p class="education__inst">
+          {e.organization}{e.location && <span>, {e.location}</span>}
+        </p>
+        {e.description && (
+          <p class="education__note">{e.description}</p>
+        )}
+      </div>
+    </li>
+  ))}
+</ul>
