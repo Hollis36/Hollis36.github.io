@@ -1,57 +1,64 @@
 {
-  "sample-2026-foo": {
+  "nanorobot-snb-2026": {
     "authors": [
-      { "name": "Peifu Zhang", "url": "", "self": true, "equal": true },
-      { "name": "Co Author A", "url": "https://example.com/a", "equal": true },
-      { "name": "Co Author B", "url": "https://example.com/b" },
-      { "name": "Senior Advisor", "url": "https://example.com/advisor", "corresponding": true }
+      { "name": "Wenjing Li", "equal": true },
+      { "name": "Bi Lin", "equal": true },
+      { "name": "Bixiao Li", "equal": true },
+      { "name": "Peifu Zhang", "self": true, "equal": true },
+      { "name": "Ziyue Ju" },
+      { "name": "Anees A. Ansari" },
+      { "name": "Ruichan Lv", "corresponding": true }
     ],
-    "venue": "Conference on Neural Information Processing Systems (NeurIPS)",
-    "venueShort": "NeurIPS",
+    "venue": "Sensors and Actuators B: Chemical",
+    "venueShort": "Sens. Actuators B",
     "year": 2026,
     "selected": true,
-    "tags": ["machine learning", "robotics"],
-    "note": "Oral",
+    "tags": ["nanorobots", "rare-earth nanoparticles", "deep learning", "bioimaging"],
+    "note": "Co-first author",
     "links": {
-      "pdf": "https://arxiv.org/pdf/0000.00000",
-      "arxiv": "https://arxiv.org/abs/0000.00000",
-      "code": "https://github.com/Hollis36/sample-foo",
-      "project": "https://example.com/sample-foo"
+      "website": "https://doi.org/10.1016/j.snb.2026.139673"
     },
-    "bibtex": "@inproceedings{yourname2026foo,\n  title     = {A Sample Paper Title You Will Replace},\n  author    = {Peifu Zhang and Co Author A and Co Author B and Senior Advisor},\n  booktitle = {NeurIPS},\n  year      = {2026}\n}"
+    "bibtex": "@article{li2026deep,\n  title     = {Deep learning enabled magnetic/rare earth hybrid nanorobots for multi-modal bioimaging and temperature sensing with surgical boundary determination},\n  author    = {Li, Wenjing and Lin, Bi and Li, Bixiao and Zhang, Peifu and Ju, Ziyue and Ansari, Anees A. and Lv, Ruichan},\n  journal   = {Sensors and Actuators B: Chemical},\n  volume    = {455},\n  pages     = {139673},\n  year      = {2026},\n  doi       = {10.1016/j.snb.2026.139673}\n}"
   },
-  "sample-2025-bar": {
+  "xepl-lpr-2025": {
     "authors": [
-      { "name": "Co Author A", "url": "https://example.com/a" },
-      { "name": "Peifu Zhang", "url": "", "self": true },
-      { "name": "Senior Advisor", "url": "https://example.com/advisor", "corresponding": true }
+      { "name": "Jian Zhao", "equal": true },
+      { "name": "Deyang Li", "equal": true },
+      { "name": "Peifu Zhang", "self": true },
+      { "name": "Ruichan Lv", "corresponding": true },
+      { "name": "Yubin Wang" },
+      { "name": "Su Zhou" },
+      { "name": "Degang Deng" },
+      { "name": "Shiqing Xu", "corresponding": true },
+      { "name": "Lei Lei", "corresponding": true }
     ],
-    "venue": "International Conference on Machine Learning (ICML)",
-    "venueShort": "ICML",
+    "venue": "Laser & Photonics Reviews",
+    "venueShort": "Laser Photonics Rev.",
     "year": 2025,
     "selected": true,
-    "tags": ["reinforcement learning"],
+    "tags": ["X-ray imaging", "persistent luminescence", "scintillator", "machine learning"],
     "links": {
-      "pdf": "https://arxiv.org/pdf/1111.11111",
-      "arxiv": "https://arxiv.org/abs/1111.11111",
-      "code": "https://github.com/Hollis36/sample-bar"
+      "website": "https://doi.org/10.1002/lpor.202502875"
     },
-    "bibtex": "@inproceedings{authora2025bar,\n  title     = {Another Sample Paper Title},\n  author    = {Co Author A and Peifu Zhang and Senior Advisor},\n  booktitle = {ICML},\n  year      = {2025}\n}"
+    "bibtex": "@article{zhao2025dual,\n  title     = {Dual-Heterovalent Codoping Enables Bright and Rapid X-Ray Excited Persistent Luminescence for Noise-Free 3D Imaging and Intelligent Detection},\n  author    = {Zhao, Jian and Li, Deyang and Zhang, Peifu and Lv, Ruichan and Wang, Yubin and Zhou, Su and Deng, Degang and Xu, Shiqing and Lei, Lei},\n  journal   = {Laser \\& Photonics Reviews},\n  year      = {2025},\n  pages     = {e02875},\n  doi       = {10.1002/lpor.202502875}\n}"
   },
-  "sample-2024-baz": {
+  "mpif-jme-2025": {
     "authors": [
-      { "name": "Peifu Zhang", "url": "", "self": true },
-      { "name": "Senior Advisor", "url": "https://example.com/advisor", "corresponding": true }
+      { "name": "Ruichan Lv", "corresponding": true },
+      { "name": "Han Xu" },
+      { "name": "Bin Zi" },
+      { "name": "Peifu Zhang", "self": true },
+      { "name": "Yuji Li" },
+      { "name": "Jin Huang" }
     ],
-    "venue": "International Conference on Robotics and Automation (ICRA)",
-    "venueShort": "ICRA",
-    "year": 2024,
-    "selected": false,
-    "tags": ["robotics"],
+    "venue": "Journal of Mechanical Engineering",
+    "venueShort": "J. Mech. Eng.",
+    "year": 2025,
+    "selected": true,
+    "tags": ["fault monitoring", "selective laser melting", "multi-modal fusion", "PINN", "Mamba"],
     "links": {
-      "pdf": "https://arxiv.org/pdf/2222.22222",
-      "arxiv": "https://arxiv.org/abs/2222.22222"
+      "website": "https://link.cnki.net/urlid/11.2187.th.20251119.1418.052"
     },
-    "bibtex": "@inproceedings{yourname2024baz,\n  title     = {Yet Another Sample Title},\n  author    = {Peifu Zhang and Senior Advisor},\n  booktitle = {ICRA},\n  year      = {2024}\n}"
+    "bibtex": "@article{lv2025physical,\n  title     = {Physical Information Fusion of Multi-modal Data for Online Fault Monitoring of Selective Laser Melting Integrated Manufacturing},\n  author    = {L{\\\"u}, Ruichan and Xu, Han and Zi, Bin and Zhang, Peifu and Li, Yuji and Huang, Jin},\n  journal   = {Journal of Mechanical Engineering},\n  volume    = {61},\n  number    = {11},\n  year      = {2025}\n}"
   }
 }
