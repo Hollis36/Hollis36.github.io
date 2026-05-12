@@ -5,45 +5,38 @@ import '@fontsource-variable/inter';
 import '@fontsource-variable/jetbrains-mono';
 import '../styles/global.css';
 import Header from '../components/Header.astro';
-import type { Locale } from '../i18n/ui';
-import { otherLocale, localizedPath, t } from '../i18n/ui';
 import { profile } from '../data/profile';
 
 type Props = {
-  locale: Locale;
   title: string;
   description: string;
 };
 
-const { locale, title, description } = Astro.props;
-const altLocale = otherLocale(locale);
-const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://example.com').toString();
-const altUrl = new URL(localizedPath(altLocale), Astro.site ?? 'https://example.com').toString();
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://hollis36.github.io').toString();
 const year = new Date().getFullYear();
 const lastUpdated = new Date().toISOString().slice(0, 10);
 ---
 
 <!doctype html>
-<html lang={locale === 'zh' ? 'zh-CN' : 'en'}>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang={altLocale === 'zh' ? 'zh-CN' : 'en'} href={altUrl} />
-    <link rel="alternate" hreflang="x-default" href={new URL('/', Astro.site ?? 'https://example.com').toString()} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
   <body>
-    <Header locale={locale} />
+    <Header />
     <main class="container">
       <slot />
     </main>
     <footer class="site-footer">
       <div>
-        &copy; {year} {profile.shortName} &middot; {t(locale, 'footer.updated')}: {lastUpdated}
+        &copy; {year} {profile.name} &middot; Last updated: {lastUpdated}
       </div>
     </footer>
   </body>

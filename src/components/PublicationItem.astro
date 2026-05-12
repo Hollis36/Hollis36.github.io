@@ -1,7 +1,4 @@
 ---
-import type { Locale } from '../i18n/ui';
-import { t } from '../i18n/ui';
-
 type AuthorMeta = {
   name: string;
   url?: string;
@@ -23,7 +20,6 @@ type PaperMeta = {
 };
 
 type Props = {
-  locale: Locale;
   title: string;
   abstract: string;
   note?: string;
@@ -31,15 +27,15 @@ type Props = {
   uid: string;
 };
 
-const { locale, title, abstract, note, meta, uid } = Astro.props;
+const { title, abstract, note, meta, uid } = Astro.props;
 
 const linkLabels: Array<[keyof NonNullable<PaperMeta['links']>, string]> = [
-  ['pdf', t(locale, 'pub.pdf')],
-  ['arxiv', t(locale, 'pub.arxiv')],
-  ['code', t(locale, 'pub.code')],
-  ['project', t(locale, 'pub.project')],
-  ['video', t(locale, 'pub.video')],
-  ['website', t(locale, 'pub.website')],
+  ['pdf', 'PDF'],
+  ['arxiv', 'arXiv'],
+  ['code', 'Code'],
+  ['project', 'Project'],
+  ['video', 'Video'],
+  ['website', 'Website'],
 ];
 const links = meta.links ?? {};
 const headerLink = links.project || links.arxiv || links.pdf || links.website;
@@ -78,7 +74,7 @@ const venueNote = note ?? meta.note;
       class="pub-item__toggle"
       data-toggle-target={`abs-${uid}`}
       aria-expanded="false"
-    >[{t(locale, 'pub.abstract')}]</button>
+    >[Abstract]</button>
     {linkLabels.map(([key, label]) => {
       const href = links[key];
       return href ? <a href={href} target="_blank" rel="noopener noreferrer">[{label}]</a> : null;
@@ -88,7 +84,7 @@ const venueNote = note ?? meta.note;
       class="pub-item__toggle"
       data-toggle-target={`bib-${uid}`}
       aria-expanded="false"
-    >[{t(locale, 'pub.bibtex')}]</button>
+    >[BibTeX]</button>
   </div>
   <div id={`abs-${uid}`} class="pub-item__abstract" hidden>{abstract}</div>
   <div id={`bib-${uid}`} class="pub-item__bibtex-wrap" hidden>
@@ -96,10 +92,10 @@ const venueNote = note ?? meta.note;
       type="button"
       class="pub-item__copy"
       data-copy-source={`bib-code-${uid}`}
-      data-copy-label={t(locale, 'pub.copy')}
-      data-copied-label={t(locale, 'pub.copied')}
-      aria-label={t(locale, 'pub.copy_aria')}
-    >{t(locale, 'pub.copy')}</button>
+      data-copy-label="Copy"
+      data-copied-label="Copied"
+      aria-label="Copy BibTeX to clipboard"
+    >Copy</button>
     <pre id={`bib-code-${uid}`} class="pub-item__bibtex"><code>{meta.bibtex}</code></pre>
   </div>
 </li>

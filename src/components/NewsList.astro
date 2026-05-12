@@ -1,11 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
-import type { Locale } from '../i18n/ui';
 
-type Props = { locale: Locale };
-const { locale } = Astro.props;
-
-const all = await getCollection('news', (entry) => entry.id.startsWith(`${locale}/`));
+const all = await getCollection('news');
 const sorted = all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const items = await Promise.all(

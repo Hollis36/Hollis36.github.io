@@ -10,45 +10,40 @@ import ReviewerServiceComp from '../components/ReviewerService.astro';
 import { getCollection } from 'astro:content';
 import papersData from '../data/papers.json';
 import { profile } from '../data/profile';
-import { t } from '../i18n/ui';
-
-const locale = 'en';
-const lp = profile.locales[locale];
 
 type PaperMeta = (typeof papersData)[keyof typeof papersData];
 const meta = papersData as Record<string, PaperMeta>;
 
-const pubs = await getCollection('publications', (e) => e.id.startsWith(`${locale}/`));
+const pubs = await getCollection('publications');
 const pubsWithMeta = pubs
   .map((p) => ({ entry: p, m: meta[p.data.paperId] }))
   .filter((x): x is { entry: typeof pubs[number]; m: PaperMeta } => Boolean(x.m))
   .sort((a, b) => b.m.year - a.m.year);
 
-const projects = await getCollection('projects', (e) => e.id.startsWith(`${locale}/`));
+const projects = await getCollection('projects');
 const projectsSorted = projects.sort((a, b) =>
   a.data.order !== b.data.order ? a.data.order - b.data.order : b.data.year - a.data.year
 );
 
-const pageTitle = `${lp.name} | ${lp.position}`;
-const pageDescription = lp.goal;
+const pageTitle = `${profile.name} | ${profile.position}`;
+const pageDescription = profile.goal;
 ---
 
-<BaseLayout locale={locale} title={pageTitle} description={pageDescription}>
-  <Hero locale={locale} />
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Hero />
   <hr />
 
   <section class="section">
-    <SectionTitle title={t(locale, 'section.news')} id="news" />
-    <NewsList locale={locale} />
+    <SectionTitle title="News" id="news" />
+    <NewsList />
   </section>
   <hr />
 
   <section class="section">
-    <SectionTitle title={t(locale, 'section.publications')} id="publications" />
+    <SectionTitle title="Publications" id="publications" />
     <ul class="pub-list">
       {pubsWithMeta.map(({ entry, m }) => (
         <PublicationItem
-          locale={locale}
           uid={entry.data.paperId}
           title={entry.data.title}
           abstract={entry.data.abstract}
@@ -63,7 +58,7 @@ const pageDescription = lp.goal;
     <>
       <hr />
       <section class="section">
-        <SectionTitle title={t(locale, 'section.projects')} id="projects" />
+        <SectionTitle title="Selected Projects" id="projects" />
         <ul class="project-grid">
           {projectsSorted.map((p) => (
             <ProjectCard
@@ -80,13 +75,13 @@ const pageDescription = lp.goal;
 
   <hr />
   <section class="section">
-    <SectionTitle title={t(locale, 'section.honors')} id="honors" />
-    <Honors locale={locale} />
+    <SectionTitle title="Honors & Awards" id="honors" />
+    <Honors />
   </section>
 
   <hr />
   <section class="section">
-    <SectionTitle title={t(locale, 'section.reviewer')} id="reviewer" />
+    <SectionTitle title="Reviewer Service" id="reviewer" />
     <ReviewerServiceComp />
   </section>
 </BaseLayout>
