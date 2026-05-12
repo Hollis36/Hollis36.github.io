@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SectionTitle from '../components/SectionTitle.astro';
+import Education from '../components/Education.astro';
 import NewsList from '../components/NewsList.astro';
 import PublicationItem from '../components/PublicationItem.astro';
 import ProjectCard from '../components/ProjectCard.astro';
@@ -27,6 +28,8 @@ const projectsSorted = projects.sort((a, b) =>
 
 const pageTitle = `${profile.name} | ${profile.position}`;
 const pageDescription = profile.goal;
+const hasReviewer = profile.reviewerService.length > 0;
+const hasProjects = projectsSorted.length > 0;
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -36,6 +39,12 @@ const pageDescription = profile.goal;
   <section class="section">
     <SectionTitle title="News" id="news" />
     <NewsList />
+  </section>
+  <hr />
+
+  <section class="section">
+    <SectionTitle title="Education" id="education" />
+    <Education />
   </section>
   <hr />
 
@@ -54,7 +63,13 @@ const pageDescription = profile.goal;
     </ul>
   </section>
 
-  {projectsSorted.length > 0 && (
+  <hr />
+  <section class="section">
+    <SectionTitle title="Honors & Awards" id="honors" />
+    <Honors />
+  </section>
+
+  {hasProjects && (
     <>
       <hr />
       <section class="section">
@@ -73,17 +88,15 @@ const pageDescription = profile.goal;
     </>
   )}
 
-  <hr />
-  <section class="section">
-    <SectionTitle title="Honors & Awards" id="honors" />
-    <Honors />
-  </section>
-
-  <hr />
-  <section class="section">
-    <SectionTitle title="Reviewer Service" id="reviewer" />
-    <ReviewerServiceComp />
-  </section>
+  {hasReviewer && (
+    <>
+      <hr />
+      <section class="section">
+        <SectionTitle title="Reviewer Service" id="reviewer" />
+        <ReviewerServiceComp />
+      </section>
+    </>
+  )}
 </BaseLayout>
 
 <script>

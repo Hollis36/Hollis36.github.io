@@ -1,0 +1,39 @@
+---
+import { profile } from '../data/profile';
+
+function yearRange(start: number, end?: number): string {
+  if (!end) return `${start} – Present`;
+  return `${start} – ${end}`;
+}
+---
+
+<ul class="education">
+  {profile.education.map((e) => {
+    const title = e.field
+      ? `${e.degree} in ${e.field}`
+      : e.degree;
+    const meta: string[] = [];
+    if (e.gpa) meta.push(`GPA ${e.gpa}`);
+    if (e.rank) meta.push(e.rank);
+    return (
+      <li class="education__item">
+        <span class="education__year">{yearRange(e.yearStart, e.yearEnd)}</span>
+        <div class="education__body">
+          <h3 class="education__title">{title}</h3>
+          <p class="education__inst">
+            {e.institution}{e.school && <span>, {e.school}</span>}
+          </p>
+          {meta.length > 0 && (
+            <p class="education__meta">{meta.join(' · ')}</p>
+          )}
+          {e.advisor && (
+            <p class="education__meta">Advisor: {e.advisor}</p>
+          )}
+          {e.note && (
+            <p class="education__note">{e.note}</p>
+          )}
+        </div>
+      </li>
+    );
+  })}
+</ul>
