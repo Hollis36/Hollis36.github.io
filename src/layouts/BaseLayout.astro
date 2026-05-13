@@ -38,9 +38,17 @@ const personJsonLd = {
     .filter((s) => s.length > 2 && s.length < 60),
   sameAs: [
     profile.social.scholar,
+    profile.social.orcid,
     profile.social.github,
     profile.social.linkedin,
   ].filter(Boolean),
+  identifier: profile.social.orcid
+    ? {
+        '@type': 'PropertyValue',
+        propertyID: 'https://orcid.org/',
+        value: profile.social.orcid.replace('https://orcid.org/', ''),
+      }
+    : undefined,
   award: profile.honorsAwards.map((h) => `${h.year} — ${h.label}`),
 };
 ---

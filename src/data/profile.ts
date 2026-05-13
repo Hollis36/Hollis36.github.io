@@ -39,6 +39,7 @@ export type Profile = {
   cvUrl: string;
   social: {
     scholar: string;
+    orcid: string;
     github: string;
     linkedin: string;
   };
@@ -64,6 +65,7 @@ export const profile: Profile = {
   cvUrl: '/cv.pdf',
   social: {
     scholar: '',
+    orcid: 'https://orcid.org/0009-0007-8422-3955',
     github: 'https://github.com/Hollis36',
     linkedin: '',
   },

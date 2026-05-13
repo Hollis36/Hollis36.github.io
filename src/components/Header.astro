@@ -10,6 +10,9 @@ const navItems: NavItem[] = [
 if (profile.social.scholar) {
   navItems.push({ label: 'Google Scholar', href: profile.social.scholar, external: true });
 }
+if (profile.social.orcid) {
+  navItems.push({ label: 'ORCID', href: profile.social.orcid, external: true });
+}
 if (profile.social.github) {
   navItems.push({ label: 'GitHub', href: profile.social.github, external: true });
 }
