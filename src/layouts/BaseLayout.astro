@@ -15,7 +15,7 @@ type Props = {
 const { title, description } = Astro.props;
 const siteOrigin = Astro.site ?? new URL('https://hollis36.github.io');
 const canonical = new URL(Astro.url.pathname, siteOrigin).toString();
-const ogImage = new URL(profile.avatarUrl, siteOrigin).toString();
+const ogImage = new URL('/og-image.jpg', siteOrigin).toString();
 const year = new Date().getFullYear();
 const lastUpdated = new Date().toISOString().slice(0, 10);
 
@@ -72,16 +72,19 @@ const personJsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content={`Portrait of ${profile.name}`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content={`${profile.name} — ${profile.position}`} />
     <meta property="og:locale" content="en_US" />
     <meta property="profile:first_name" content="Peifu" />
     <meta property="profile:last_name" content="Zhang" />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content={`Portrait of ${profile.name}`} />
+    <meta name="twitter:image:alt" content={`${profile.name} — ${profile.position}`} />
 
     <title>{title}</title>
 
