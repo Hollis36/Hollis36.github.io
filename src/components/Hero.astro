@@ -10,9 +10,7 @@ import { profile } from '../data/profile';
     <p class="hero__goal"><strong>Goal:</strong> {profile.goal}</p>
     <p class="hero__interests"><strong>Research Interests:</strong> {profile.interests}</p>
   </div>
-  {profile.avatarUrl && (
-    <div class="hero__avatar">
-      <img src={profile.avatarUrl} alt={profile.name} width="200" height="200" loading="eager" />
-    </div>
-  )}
+  <div class="hero__avatar">
+    <img src={profile.avatarUrl} alt={profile.name} width="200" height="200" loading="eager" />
+  </div>
 </section>
