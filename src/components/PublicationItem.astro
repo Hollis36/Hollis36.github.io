@@ -16,7 +16,7 @@ type PaperMeta = {
   tags?: string[];
   note?: string;
   links?: Partial<Record<'pdf' | 'arxiv' | 'code' | 'project' | 'video' | 'website', string>>;
-  bibtex: string;
+  bibtex?: string;
 };
 
 type Props = {
@@ -40,6 +40,9 @@ const linkLabels: Array<[keyof NonNullable<PaperMeta['links']>, string]> = [
 const links = meta.links ?? {};
 const headerLink = links.project || links.arxiv || links.pdf || links.website;
 const venueNote = note ?? meta.note;
+const hasNamedAuthors = meta.authors.some(
+  (a) => a.name && a.name.trim().toLowerCase() !== 'author list omitted'
+);
 ---
 
 <li class="pub-item">
@@ -50,20 +53,22 @@ const venueNote = note ?? meta.note;
       <span>{title}</span>
     )}
   </h3>
-  <p class="pub-item__authors">
-    {meta.authors.map((a, i) => (
-      <>
-        {a.url ? (
-          <a href={a.url} class={a.self ? 'pub-item__author--self' : ''} target="_blank" rel="noopener noreferrer">{a.name}</a>
-        ) : (
-          <span class={a.self ? 'pub-item__author--self' : ''}>{a.name}</span>
-        )}
-        {a.equal && <span class="pub-item__author-mark">*</span>}
-        {a.corresponding && <span class="pub-item__author-mark">†</span>}
-        {i < meta.authors.length - 1 && <span>, </span>}
-      </>
-    ))}
-  </p>
+  {hasNamedAuthors && (
+    <p class="pub-item__authors">
+      {meta.authors.map((a, i) => (
+        <>
+          {a.url ? (
+            <a href={a.url} class={a.self ? 'pub-item__author--self' : ''} target="_blank" rel="noopener noreferrer">{a.name}</a>
+          ) : (
+            <span class={a.self ? 'pub-item__author--self' : ''}>{a.name}</span>
+          )}
+          {a.equal && <span class="pub-item__author-mark">*</span>}
+          {a.corresponding && <span class="pub-item__author-mark">†</span>}
+          {i < meta.authors.length - 1 && <span>, </span>}
+        </>
+      ))}
+    </p>
+  )}
   <p class="pub-item__venue">
     {meta.venue}, {meta.year}
     {venueNote && <span class="pub-item__venue-note">{venueNote}</span>}
@@ -79,23 +84,27 @@ const venueNote = note ?? meta.note;
       const href = links[key];
       return href ? <a href={href} target="_blank" rel="noopener noreferrer">[{label}]</a> : null;
     })}
-    <button
-      type="button"
-      class="pub-item__toggle"
-      data-toggle-target={`bib-${uid}`}
-      aria-expanded="false"
-    >[BibTeX]</button>
+    {meta.bibtex && (
+      <button
+        type="button"
+        class="pub-item__toggle"
+        data-toggle-target={`bib-${uid}`}
+        aria-expanded="false"
+      >[BibTeX]</button>
+    )}
   </div>
   <div id={`abs-${uid}`} class="pub-item__abstract" hidden>{abstract}</div>
-  <div id={`bib-${uid}`} class="pub-item__bibtex-wrap" hidden>
-    <button
-      type="button"
-      class="pub-item__copy"
-      data-copy-source={`bib-code-${uid}`}
-      data-copy-label="Copy"
-      data-copied-label="Copied"
-      aria-label="Copy BibTeX to clipboard"
-    >Copy</button>
-    <pre id={`bib-code-${uid}`} class="pub-item__bibtex"><code>{meta.bibtex}</code></pre>
-  </div>
+  {meta.bibtex && (
+    <div id={`bib-${uid}`} class="pub-item__bibtex-wrap" hidden>
+      <button
+        type="button"
+        class="pub-item__copy"
+        data-copy-source={`bib-code-${uid}`}
+        data-copy-label="Copy"
+        data-copied-label="Copied"
+        aria-label="Copy BibTeX to clipboard"
+      >Copy</button>
+      <pre id={`bib-code-${uid}`} class="pub-item__bibtex"><code>{meta.bibtex}</code></pre>
+    </div>
+  )}
 </li>

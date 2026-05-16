@@ -3,10 +3,13 @@ import { profile } from '../data/profile';
 
 type NavItem = { label: string; href: string; external?: boolean };
 
-const navItems: NavItem[] = [
-  { label: 'CV', href: profile.cvUrl, external: true },
-  { label: 'Email', href: `mailto:${profile.emailAddress}` },
-];
+const navItems: NavItem[] = [];
+if (profile.cvUrl) {
+  navItems.push({ label: 'CV', href: profile.cvUrl, external: true });
+}
+if (profile.emailAddress) {
+  navItems.push({ label: 'Email', href: `mailto:${profile.emailAddress}` });
+}
 if (profile.social.scholar) {
   navItems.push({ label: 'Google Scholar', href: profile.social.scholar, external: true });
 }
@@ -23,7 +26,7 @@ if (profile.social.linkedin) {
 
 <header class="site-header">
   <div class="site-header__inner">
-    <a href="/" class="site-header__brand">{profile.name}</a>
+    <a href="/" class="site-header__brand">Home</a>
     <nav class="site-nav" aria-label="Primary">
       {navItems.map((item, i) => (
         <>

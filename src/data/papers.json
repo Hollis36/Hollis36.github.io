@@ -1,36 +1,20 @@
 {
   "nanorobot-snb-2026": {
     "authors": [
-      { "name": "Wenjing Li", "equal": true },
-      { "name": "Bi Lin", "equal": true },
-      { "name": "Bixiao Li", "equal": true },
-      { "name": "Peifu Zhang", "self": true, "equal": true },
-      { "name": "Ziyue Ju" },
-      { "name": "Anees A. Ansari" },
-      { "name": "Ruichan Lv", "corresponding": true }
+      { "name": "Author list omitted" }
     ],
     "venue": "Sensors and Actuators B: Chemical",
     "venueShort": "Sens. Actuators B",
     "year": 2026,
     "selected": true,
     "tags": ["nanorobots", "rare-earth nanoparticles", "deep learning", "bioimaging"],
-    "note": "Co-first author",
     "links": {
       "website": "https://doi.org/10.1016/j.snb.2026.139673"
-    },
-    "bibtex": "@article{li2026deep,\n  title     = {Deep learning enabled magnetic/rare earth hybrid nanorobots for multi-modal bioimaging and temperature sensing with surgical boundary determination},\n  author    = {Li, Wenjing and Lin, Bi and Li, Bixiao and Zhang, Peifu and Ju, Ziyue and Ansari, Anees A. and Lv, Ruichan},\n  journal   = {Sensors and Actuators B: Chemical},\n  volume    = {455},\n  pages     = {139673},\n  year      = {2026},\n  doi       = {10.1016/j.snb.2026.139673}\n}"
+    }
   },
   "xepl-lpr-2025": {
     "authors": [
-      { "name": "Jian Zhao", "equal": true },
-      { "name": "Deyang Li", "equal": true },
-      { "name": "Peifu Zhang", "self": true },
-      { "name": "Ruichan Lv", "corresponding": true },
-      { "name": "Yubin Wang" },
-      { "name": "Su Zhou" },
-      { "name": "Degang Deng" },
-      { "name": "Shiqing Xu", "corresponding": true },
-      { "name": "Lei Lei", "corresponding": true }
+      { "name": "Author list omitted" }
     ],
     "venue": "Laser & Photonics Reviews",
     "venueShort": "Laser Photonics Rev.",
@@ -39,17 +23,11 @@
     "tags": ["X-ray imaging", "persistent luminescence", "scintillator", "machine learning"],
     "links": {
       "website": "https://doi.org/10.1002/lpor.202502875"
-    },
-    "bibtex": "@article{zhao2025dual,\n  title     = {Dual-Heterovalent Codoping Enables Bright and Rapid X-Ray Excited Persistent Luminescence for Noise-Free 3D Imaging and Intelligent Detection},\n  author    = {Zhao, Jian and Li, Deyang and Zhang, Peifu and Lv, Ruichan and Wang, Yubin and Zhou, Su and Deng, Degang and Xu, Shiqing and Lei, Lei},\n  journal   = {Laser \\& Photonics Reviews},\n  year      = {2025},\n  pages     = {e02875},\n  doi       = {10.1002/lpor.202502875}\n}"
+    }
   },
   "mpif-jme-2025": {
     "authors": [
-      { "name": "Ruichan Lv", "corresponding": true },
-      { "name": "Han Xu" },
-      { "name": "Bin Zi" },
-      { "name": "Peifu Zhang", "self": true },
-      { "name": "Yuji Li" },
-      { "name": "Jin Huang" }
+      { "name": "Author list omitted" }
     ],
     "venue": "Journal of Mechanical Engineering",
     "venueShort": "J. Mech. Eng.",
@@ -58,7 +36,6 @@
     "tags": ["fault monitoring", "selective laser melting", "multi-modal fusion", "PINN", "Mamba"],
     "links": {
       "website": "https://link.cnki.net/urlid/11.2187.th.20251119.1418.052"
-    },
-    "bibtex": "@article{lv2025physical,\n  title     = {Physical Information Fusion of Multi-modal Data for Online Fault Monitoring of Selective Laser Melting Integrated Manufacturing},\n  author    = {L{\\\"u}, Ruichan and Xu, Han and Zi, Bin and Zhang, Peifu and Li, Yuji and Huang, Jin},\n  journal   = {Journal of Mechanical Engineering},\n  volume    = {61},\n  number    = {11},\n  year      = {2025}\n}"
+    }
   }
 }

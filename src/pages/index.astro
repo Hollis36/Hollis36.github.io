@@ -27,7 +27,7 @@ const projectsSorted = projects.sort((a, b) =>
   a.data.order !== b.data.order ? a.data.order - b.data.order : b.data.year - a.data.year
 );
 
-const pageTitle = `${profile.name} | ${profile.position}`;
+const pageTitle = 'Academic Portfolio';
 const pageDescription = profile.goal;
 const hasReviewer = profile.reviewerService.length > 0;
 const hasProjects = projectsSorted.length > 0;
